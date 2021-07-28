@@ -31,8 +31,8 @@ Was built as part of APU IPCV module assignment
 
   ```
   This help page can be toggled by the command `python LPD.py -h`.   
-  ![basic input]("assets/screenshot1.png")   
-  ![show result]("assets/screenshot2.png")
+  ![basic input](./assets/screenshot1.png)   
+  ![show result](./assets/screenshot2.png)
 
 ## Validation
 The system was tested against 25 images which contains a license plate with the result below:
@@ -46,4 +46,4 @@ Accuracy: 0.8
 ======================================
 ```
 This result can be produced by running the script using `-v` or `--validate` option.
-![validation result]("assets/screenshot3.png")
+![validation result](./assets/screenshot3.png)
