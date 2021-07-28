@@ -31,8 +31,10 @@ Was built as part of APU IPCV module assignment
 
   ```
   This help page can be toggled by the command `python LPD.py -h`.   
-  ![basic input](./assets/screenshot1.png)   
-  ![show result](./assets/screenshot2.png)
+  - Screenshot of basic usage   
+    ![basic input](./assets/screenshot1.png)
+  - Screenshot of showing final visual
+    ![show result](./assets/screenshot2.png)
 
 ## Validation
 The system was tested against 25 images which contains a license plate with the result below:
