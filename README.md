@@ -33,7 +33,7 @@ Was built as part of APU IPCV module assignment
   This help page can be toggled by the command `python LPD.py -h`.   
   - Screenshot of basic usage   
     ![basic input](./assets/screenshot1.png)
-  - Screenshot of showing final visual
+  - Screenshot of showing final visual   
     ![show result](./assets/screenshot2.png)
 
 ## Validation
