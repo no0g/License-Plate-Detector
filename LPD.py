@@ -71,17 +71,17 @@ def detectLicensePlate(filename,debug=False):
             cv2.imshow("Source",img)
             cv2.imshow("Edged",edged)
             cv2.imshow("Cropped",cropped_image)
-            cv2.imshow("Result",showResult(filename,result,approx,location))
+            cv2.imshow("Result",showResult(filename,result,approx))
             cv2.waitKey(0)
-        return result,location,approx
+        return result,approx
     else:
-        return None,location,approx
+        return None,approx
 
-def showResult(filename,result,approx,location):
+def showResult(filename,result,approx):
     img = cv2.imread(filename)
     text = result
     font = cv2.FONT_HERSHEY_SIMPLEX
-    res = cv2.putText(img, text=text, org=(location[1][0][0],location[1][0][1]-20), fontFace=font, fontScale=1,
+    res = cv2.putText(img, text=text, org=(approx[1][0][0],approx[1][0][1]-20), fontFace=font, fontScale=1,
                       color=(0,255,0), thickness=2, lineType=cv2.LINE_AA)
     res = cv2.rectangle(img, tuple(approx[0][0]), tuple(approx[2][0]), (0,255,0),3)
     cv2.imshow("Result",cv2.cvtColor(res, cv2.COLOR_BGR2RGB))
@@ -142,14 +142,14 @@ if __name__ == "__main__":
             print(red+"[-] Could not find file!"+Color_Off)
             exit(0)
         if show:
-            license_text,location,approx = detectLicensePlate(filename)
+            license_text,approx = detectLicensePlate(filename)
             if license_text is not None:
                 print(green + "[+] Detection Result: {}, Source File: {}".format(license_text,filename)+Color_Off)
-                showResult(filename,license_text,approx,location)
+                showResult(filename,license_text,approx)
             else:
                 print(red+"[-] Could not find license plate!"+Color_Off)
         else:
-            license_text,location,approx = detectLicensePlate(filename,debug)
+            license_text,approx = detectLicensePlate(filename,debug)
             if license_text is not None:
                 print(green + "[+] Detection Result: {}, Source File: {}".format(license_text,filename)+Color_Off)
             else:
