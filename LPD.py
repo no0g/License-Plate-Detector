@@ -92,6 +92,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Simple License Plate Detection using OpenCV and EasyOCR ')
     parser.add_argument("-i", "--input",
 	help="path to an image")
+    parser.add_argument("-di", "--directory",
+	help="path to directory")
     parser.add_argument("-s", "--show", action="store_true",
 	help="show final visualizations")
     parser.add_argument("-d", "--debug", action="store_true",
@@ -154,6 +156,19 @@ if __name__ == "__main__":
                 print(green + "[+] Detection Result: {}, Source File: {}".format(license_text,filename)+Color_Off)
             else:
                 print(red+"[-] Could not find license plate!"+Color_Off)
+    
+    elif args["directory"]:
+        images = sorted(list(paths.list_images(args["directory"])))
+        for image in images:
+            license_text,approx = detectLicensePlate(image)
+            if license_text is not None:
+                print(green + "[+] Detection Result: {}, Source File: {}".format(license_text.upper(),image)+Color_Off)
+            else:
+                print(red+"[-] Could not find license plate!"+" Source: "+image+Color_Off)
+
+
+
+
 
 
 
